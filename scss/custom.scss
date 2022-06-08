@@ -437,3 +437,37 @@ $airbnb-color: linear-gradient(64deg, $pink-500 40%, $pink-700);
     }
   }
 }
+
+// soluzione veloce
+
+.rounded {
+  border-radius: 0.25rem !important;
+}
+
+.rounded-0 {
+  border-radius: 0 !important;
+}
+
+.rounded-1 {
+  border-radius: 0.2rem !important;
+}
+
+.rounded-2 {
+  border-radius: 0.25rem !important;
+}
+
+.rounded-3 {
+  border-radius: 0.3rem !important;
+}
+
+.rounded-4 {
+  border-radius: 0.6rem !important;
+}
+
+.rounded-5 {
+  border-radius: 0.8rem !important;
+}
+
+.rounded-6 {
+  border-radius: 1rem !important;
+}
