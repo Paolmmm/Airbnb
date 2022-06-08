@@ -1,0 +1,439 @@
+// custom
+$carousel-caption-width: 100%;
+$carousel-indicator-width: 0.4rem;
+$carousel-indicator-height: 0.4rem;
+// $carousel-control-color: $red-100;
+$carousel-control-opacity: 1;
+$carousel-control-color: black;
+$border-radius-xl: 0.6rem; // rounded-4
+$border-radius-2xl: 0.8rem; // rounded-5
+$border-radius-3xl: 1rem; // rounded-5
+$carousel-indicator-opacity: 0.3;
+$carousel-control-width: 5%;
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 4,
+  7: $spacer * 6,
+  8: $spacer * 8,
+);
+
+$font-size-base: 1rem;
+$h1-font-size: $font-size-base * 3;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+
+$form-check-input-width: 1.5em;
+$form-check-input-checked-bg-color: currentColor;
+
+$form-select-bg: transparent;
+$form-select-indicator-color: white;
+
+// bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// variables
+$fogStart: 0%;
+$fogEnd: 15%;
+$airbnb-color: linear-gradient(64deg, $pink-500 40%, $pink-700);
+.btn-cta {
+  background: $airbnb-color;
+  color: white;
+
+  &:hover {
+    color: inherit;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.25rem transparentize($color: $pink-500, $amount: 0.75);
+  }
+}
+@keyframes moveUp {
+  0% {
+    transform: translateY(20%);
+    z-index: 100;
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    z-index: 100;
+  }
+}
+
+// page
+.header {
+  &__content {
+    animation: moveUp 2s;
+  }
+
+  &__logo {
+    &:hover {
+      @media (hover: hover) and (pointer: fine) {
+        background-color: rgb(255 255 255 / 20%);
+      }
+    }
+  }
+}
+
+.bg-image--header {
+  height: 100vh;
+  background-image: url(../img/designecologist-YHd66D4gMMU-unsplash.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+
+  @include media-breakpoint-up(sm) {
+    height: 41rem;
+    background-position: center;
+  }
+
+  @include media-breakpoint-up(md) {
+    height: 33rem;
+    background-image: linear-gradient(
+        to right,
+        rgb(0 0 0 / 1) 0%,
+        transparent 30%
+      ),
+      url(../img/designecologist-YHd66D4gMMU-unsplash.webp);
+  }
+}
+
+#carousel1 {
+  max-width: 20rem;
+
+  @media only screen and (max-width: 18.75em) {
+    min-height: 13rem;
+  }
+}
+
+#carousel2 {
+  @include media-breakpoint-up(lg) {
+    .carousel-control-prev {
+      left: -1.5%;
+    }
+
+    .carousel-control-next {
+      right: -1.5%;
+    }
+  }
+
+  .row > div:first-child {
+    min-height: 29.5rem;
+
+    @include media-breakpoint-down(md) {
+      max-height: 12rem;
+      min-height: unset;
+    }
+  }
+}
+
+.carousel-indicators {
+  filter: invert(1);
+  bottom: -3.5rem;
+  justify-content: start;
+
+  @include media-breakpoint-down(md) {
+    margin-left: 2%;
+  }
+}
+
+.blockquote {
+  p,
+  &-footer {
+    @include media-breakpoint-down(lg) {
+      font-size: 90% !important;
+    }
+  }
+
+  &-footer {
+    &::before {
+      content: "";
+    }
+  }
+}
+
+#form-section--house {
+  .form {
+    &-check,
+    &-check-label {
+      cursor: pointer !important;
+    }
+
+    &__btn {
+      background: none;
+
+      input {
+        background: none;
+        border: none;
+        outline: none;
+      }
+
+      i::before {
+        transition: 0.4s all;
+      }
+
+      &:focus i::before,
+      input:focus + i::before {
+        transform: rotate(180deg);
+      }
+    }
+
+    &--selection {
+      top: 82%;
+      z-index: 5;
+      overflow: hidden;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    &-check {
+      max-width: 20.5rem;
+
+      &:hover {
+        background-color: rgb(230, 30, 79) !important;
+        color: white !important;
+      }
+
+      &-label {
+        p {
+          font-size: 82%;
+        }
+      }
+
+      &-input {
+        display: none;
+      }
+
+      &-input:checked[type="radio"] ~ i {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+    }
+
+    [name="form__search--input"] {
+      width: 4.5rem;
+      overflow: hidden;
+      max-width: 12rem !important;
+
+      &:focus {
+        width: 12rem;
+      }
+
+      @include media-breakpoint-up(md) {
+        &:focus {
+          width: 17rem;
+          max-width: 14rem !important;
+        }
+      }
+    }
+
+    .profit {
+      br {
+        @media only screen and (max-width: 25em) {
+          display: inline !important;
+        }
+      }
+
+      &__span {
+        background: $airbnb-color;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+}
+
+.bg-image--form {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  background-image: linear-gradient(
+      to right,
+      rgb(0 0 0 / 1) 0%,
+      transparent 30%
+    ),
+    url(../img/house-form.webp);
+
+  @include media-breakpoint-down(md) {
+    background-image: none;
+  }
+}
+
+#form-section--house.bg-image--form {
+  background-image: none;
+
+  @include media-breakpoint-down(md) {
+    background-image: linear-gradient(135deg, rgb(0, 0, 0) 0%, transparent 70%),
+      url(../img/house-form.webp);
+  }
+}
+
+#card-slider {
+  .card-group {
+    flex-flow: nowrap;
+  }
+
+  .card {
+    flex: 0 0 12rem;
+
+    @include media-breakpoint-up(md) {
+      flex: 0 0 20rem;
+    }
+
+    img {
+      max-height: 12.5rem;
+      object-fit: cover;
+    }
+  }
+
+  .row {
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    -webkit-mask: linear-gradient(
+        to right,
+        transparent 0,
+        #fff var(--fog-start, $fogStart)
+      ),
+      linear-gradient(to left, transparent 0, #fff var(--fog-end, $fogEnd));
+    -webkit-mask-composite: destination-in;
+    mask: linear-gradient(
+        to right,
+        transparent 0,
+        #fff var(--fog-start, $fogStart)
+      ),
+      linear-gradient(to left, transparent 0, #fff var(--fog-end, $fogEnd));
+    mask-composite: destination-in;
+  }
+
+  button {
+    bottom: unset;
+    top: 40%;
+  }
+}
+
+#cta-section {
+  img {
+    height: 25rem;
+    object-fit: cover;
+
+    @include media-breakpoint-down(md) {
+      border-radius: 0 !important;
+      height: 15rem;
+    }
+  }
+}
+
+#info-section {
+  .carousel-inner {
+    min-height: 27.5rem;
+
+    @media only screen and (min-width: 19em) {
+      min-height: 24.5rem;
+    }
+
+    @media only screen and (min-width: 27.5em) {
+      min-height: 18.5rem;
+    }
+
+    @include media-breakpoint-up(sm) {
+      min-height: 15rem;
+    }
+  }
+}
+
+.bg-image--start {
+  min-height: 22rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(../img/3.webp);
+
+  @include media-breakpoint-up(md) {
+    min-height: 34rem;
+    background-image: linear-gradient(
+        to right,
+        rgb(0 0 0 / 1) 0%,
+        transparent 30%
+      ),
+      url(../img/3.webp);
+  }
+}
+
+#form-section--subscribe {
+  .row > div {
+    &:first-child > * {
+      max-width: 33rem;
+    }
+
+    &:nth-child(2) > * {
+      max-width: 28rem;
+    }
+  }
+
+  .form {
+    &-floating {
+      font-size: 110%;
+
+      label {
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      &:first-child {
+        input {
+          border-bottom-left-radius: 0 !important;
+          border-bottom-right-radius: 0 !important;
+        }
+      }
+
+      &:nth-child(2) {
+        input {
+          border-top-left-radius: 0 !important;
+          border-top-right-radius: 0 !important;
+        }
+      }
+    }
+
+    &-check {
+      input {
+        &:focus {
+          box-shadow: 0 0 0 0.25rem transparentize($color: black, $amount: 0.75);
+        }
+      }
+    }
+  }
+}
+
+#footer {
+  a {
+    text-decoration: none;
+    color: currentColor;
+  }
+
+  &__copyright {
+    li:first-child {
+      @include media-breakpoint-down(xl) {
+        flex: 1 0 100%;
+      }
+    }
+  }
+}

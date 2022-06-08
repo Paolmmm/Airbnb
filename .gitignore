@@ -1,0 +1,5 @@
+.parcel-cache
+dist
+node_modules
+scss/custom.css
+scss/custom.css.map
